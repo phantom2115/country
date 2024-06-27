@@ -1,0 +1,23 @@
+import Country from "../types/country";
+
+interface CountryCardProps {
+  country: Country;
+  handleSelectCountry: (country: Country) => void;
+}
+
+const CountryCard: React.FC<CountryCardProps> = ({
+  country,
+  handleSelectCountry,
+}) => {
+  return (
+    <div
+      onClick={() => handleSelectCountry(country)}
+      className="p-4 bg-white rounded-lg hover:shadow-lg transition-transform transform"
+    >
+      <img src={country.flags.png} />
+      <h3>{country.name.common}</h3>
+    </div>
+  );
+};
+
+export default CountryCard;
